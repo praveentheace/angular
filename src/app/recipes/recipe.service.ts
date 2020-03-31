@@ -18,21 +18,13 @@ export class RecipeService{
     this.recipesChanged.next(this.recipe.slice());
   }
 
+  setRecipes(recipes: Recipe[]) {
+    this.recipe = recipes;
+    this.recipesChanged.next(this.recipe.slice());
+  }
 
-    private recipe: Recipe[] = [
-    new Recipe('Tomato rice', 'this is a tomato rice recipe', 
-      'https://upload.wikimedia.org/wikipedia/commons/c/c1/Tomato_Rice_Recipe%2C_South_Indian_Style.jpg',
-      [
-          new Ingredient('Tomato', 10),
-          new Ingredient('onion', 2)
-      ]),
-    new Recipe('Egg Curry', 'this is a egg curry recipe', 
-      'https://upload.wikimedia.org/wikipedia/commons/1/19/Egg_curry.jpg',
-      [
-          new Ingredient('Egg', 4),
-          new Ingredient('Tomato', 2)
-      ])
-  ];
+
+    private recipe: Recipe[] = [];
 
   constructor(private slService: ShoppingListService){
 
